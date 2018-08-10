@@ -1,12 +1,12 @@
-import { RECEIVE_CHARACTERS } from './../actions/characters'
-import { FETCH_CHARACTERS } from './../actions/characters';
+export const RECEIVE_CHARACTERS = 'RECEIVE_CHARACTERS'
+export const FETCH_CHARACTERS = 'FETCH_CHARACTERS'
 
 const initialState = {
   data: {},
   loading: false
 }
 
-const characters = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CHARACTERS:
       return {
@@ -26,4 +26,10 @@ const characters = (state = initialState, action) => {
   }
 }
 
-export default characters
+export const getCharacters = () => {
+  return {
+    type: FETCH_CHARACTERS
+  }
+}
+
+export default reducer

@@ -1,20 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import App from "../../components/App";
-import { fetchCharacters } from "../../actions/characters";
+import Characters from "../../components/characters";
+import { getCharacters } from './../../actions/characters';
 
 
-class AppContainer extends React.Component {
+class CharactersContainer extends React.Component {
   state = {
     characters: null
   };
 
   componentDidMount () {
-    fetchCharacters();
+    let { dispatch } = this.props
+
+    dispatch(getCharacters())
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log("this", nextProps);
     if (this.props !== nextProps) {
       this.setState({characters: nextProps.characters});
     }
@@ -22,15 +23,14 @@ class AppContainer extends React.Component {
 
   render () {
     if (!this.state.characters) return null;
-    return <App characters={this.state.characters} />;
+    return <Characters characters={this.state.characters.data} loading={this.state.characters.loading} />;
   }
 }
 
 const mapStateToProps = (store) => {
-  console.log("Store", store);
   return {
     characters: store.appReducer.characters
   };
 };
 
-export default connect(mapStateToProps)(AppContainer);
+export default connect(mapStateToProps)(CharactersContainer);

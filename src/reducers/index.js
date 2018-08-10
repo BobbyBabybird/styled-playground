@@ -1,4 +1,4 @@
-import characters from './characters'
+import characters from './../ducks/characters'
 import theme from './theme'
 import { combineReducers } from 'redux'
 

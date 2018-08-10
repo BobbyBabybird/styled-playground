@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import appReducer from '../reducers'
 
-import { fetchCharacters } from '../actions/characters'
+import rootSaga from '../sagas/characters'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -17,6 +17,6 @@ const store = createStore(
   )
 )
 
-sagaMiddleware.run(fetchCharacters)
+sagaMiddleware.run(rootSaga)
 
 export default store

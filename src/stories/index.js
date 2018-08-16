@@ -9,11 +9,10 @@ import { Welcome } from '@storybook/react/demo';
 import ThemeProvider from './themeProvider';
 
 import Button from '../components/common/button';
-import { ButtonText } from '../components/common/button';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
   .addDecorator(getStory => <ThemeProvider>{ getStory() }</ThemeProvider>)
-  .add('Default', () => <Button variant="default" onClick={action('clicked')}><ButtonText>Click me</ButtonText></Button>)
-  .add('Primary', () => <Button variant="primary" onClick={action('clicked')}><ButtonText>Click me</ButtonText></Button>)
+  .add('Default', () => <Button variant="default" onClick={action('clicked')}>Click me</Button>)
+  .add('Primary', () => <Button variant="primary" onClick={action('clicked')}>Click me</Button>)

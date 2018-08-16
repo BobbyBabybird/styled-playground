@@ -16,6 +16,7 @@
  9. Preloader component for when characters are loading.(check)
  10. Create test for api( fetch -> saga ). Google jest redux saga
  11. Read up on Ducks before testing action/reducers https://github.com/erikras/ducks-modular-redux/
+ 12. Nice UX animaitons for click, hover etc. (check)
 
  ### Next session
 

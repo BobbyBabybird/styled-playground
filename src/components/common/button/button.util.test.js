@@ -64,3 +64,15 @@ test('<Button /> applies variant Primary Light theme styles', () => {
   expect(wrapper).toHaveStyleRule('background-color', 'violet')
   expect(wrapper).toHaveStyleRule('color', 'snow')
 })
+
+// test('<Button /> will add rippleEffect.span on click', () => {
+//
+//   const wrapper = shallow(<Button />)
+//   const render = wrapper.dive()
+//   const button = wrapper.find('styled.button').at(0)
+//   console.log(render);
+//   render.simulate('click', { preventDefault() {} })
+//
+//   expect(wrapper.state().rippleList.toHaveLength(1))
+//
+// })

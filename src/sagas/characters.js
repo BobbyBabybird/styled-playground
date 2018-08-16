@@ -1,6 +1,6 @@
 import axios from 'axios'
 import API_END_POINT from './../config/index'
-import { RECEIVE_CHARACTERS, FETCH_CHARACTERS } from './../actions/characters'
+import { RECEIVE_CHARACTERS, FETCH_CHARACTERS } from './../ducks/characters'
 import { call, put, takeEvery, all } from 'redux-saga/effects'
 
 const getCharacters = () => axios.get(API_END_POINT)

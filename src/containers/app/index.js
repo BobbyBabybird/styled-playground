@@ -12,12 +12,13 @@ import {
   toggleTheme,
   toggleMode,
   toggleSize
-} from '../../actions/theme';
+} from '../../ducks/theme';
 
 
 const App = props => (
   <ThemeProvider theme={props.theme}>
     <AppBox>
+      <Button variant="primary" onClick={props.toggleTheme}>Toggle theme</Button>
       <Navbar />
       <Characters />
       <Box center padding>
@@ -25,6 +26,7 @@ const App = props => (
         <Button onClick={props.toggleMode}>Toggle mode</Button>
         <Button onClick={props.toggleSize}>Toggle size</Button>
       </Box>
+      <button onClick={props.toggleMode}>click</button>
     </AppBox>
   </ThemeProvider>
 )

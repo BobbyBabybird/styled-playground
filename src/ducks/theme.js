@@ -1,6 +1,6 @@
-import { TOGGLE_THEME } from './../actions/theme'
-import { TOGGLE_MODE } from './../actions/theme'
-import { TOGGLE_SIZE } from './../actions/theme'
+export const TOGGLE_THEME = 'theme/TOGGLE_THEME'
+export const TOGGLE_MODE = 'theme/TOGGLE_MODE'
+export const TOGGLE_SIZE = 'theme/TOGGLE_SIZE'
 
 const initialState = {
   currentTheme: {
@@ -11,7 +11,7 @@ const initialState = {
 // TODO: Fox TOGGLE_THEME to toggle depending on current setting
 //
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_THEME:
       return {
@@ -32,3 +32,23 @@ export default (state = initialState, action) => {
       return state
   }
 }
+
+export const toggleTheme = () => {
+  return {
+    type: TOGGLE_THEME
+  }
+}
+
+export const toggleMode = () => {
+  return {
+    type: TOGGLE_MODE
+  }
+}
+
+export const toggleSize = () => {
+  return {
+    type: TOGGLE_SIZE
+  }
+}
+
+export default reducer

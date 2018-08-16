@@ -1,5 +1,5 @@
 import characters from './../ducks/characters'
-import theme from './theme'
+import theme from './../ducks/theme'
 import { combineReducers } from 'redux'
 
 const appReducer = combineReducers({

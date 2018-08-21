@@ -2,11 +2,11 @@ export const TOGGLE_THEME = 'theme/TOGGLE_THEME'
 export const TOGGLE_MODE = 'theme/TOGGLE_MODE'
 export const TOGGLE_SIZE = 'theme/TOGGLE_SIZE'
 
+export const lightTheme = { mode: 'light', size: 'huge' }
+export const darkTheme = { mode: 'dark', size: 'huge'}
+
 const initialState = {
-  currentTheme: {
-    mode: 'light',
-    size: 'huge'
-  }
+  currentTheme: lightTheme
 }
 // TODO: Fox TOGGLE_THEME to toggle depending on current setting
 //

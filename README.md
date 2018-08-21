@@ -4,6 +4,8 @@
 
 `yarn storybook`
 
+`yarn test`
+
 ### ToDo
  1. Storybook switch theme + read up on how it works
  2. BMI Calculator

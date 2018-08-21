@@ -135,8 +135,11 @@ class ButtonWithText extends React.Component {
   //
   // }
 
-  _onClick = (e) => {
-    // TODO: Remove cllickeffect element after animationend.
+  _addRipple = (e) => {
+    // TODO:
+    // No action when clicked regarding click event set in app
+    // See this https://stackoverflow.com/questions/33398613/how-to-add-multiple-event-handlers-to-same-event-in-react-js
+
     const
     size               = e.target.offsetWidth,
     pos                = e.target.getBoundingClientRect(),
@@ -150,11 +153,10 @@ class ButtonWithText extends React.Component {
 
     this.setState({rippleStyle: rippleStyle})
 
-    const { rippleList } = this.state
+    const { rippleList } = this.state,
+    rand = Math.random(),
+    rippleElement = <ClickEffect key={`ripple--${rand}`} style={rippleStyle} />
 
-    const rand = Math.random()
-
-    const rippleElement = <ClickEffect key={`ripple--${rand}`} style={rippleStyle} />
 
     this.setState({rippleList: rippleList.concat(rippleElement)}, () => this._removeRipple(rippleElement))
   }
@@ -171,7 +173,7 @@ class ButtonWithText extends React.Component {
 
   render () {
     return (
-      <Button { ...this.props } onClick={this._onClick} >
+      <Button { ...this.props } onMouseDown={this._addRipple} >
         <ButtonText>{ this.props.children }</ButtonText>
         {
           this.state.rippleList

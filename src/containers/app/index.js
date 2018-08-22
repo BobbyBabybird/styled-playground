@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { AppBox } from '../../components/common/box';
+import { AppBox } from '../../components/common/box'
 import Navbar from '../../components/navbar'
 import Characters from '../characters'
-import Button from '../../components/common/button';
-import Box from '../../components/common/box';
+import Button from '../../components/common/button'
+import Box from '../../components/common/box'
+import { MenuList, MenuListItem } from './../../components/common/menu'
 import { ThemeProvider } from 'styled-components'
 import { globalStyles } from '../../styles/index'
 import {
@@ -18,7 +19,13 @@ import {
 const App = props => (
   <ThemeProvider theme={props.theme}>
     <AppBox>
-      <Button variant="primary" onClick={props.toggleTheme}>Toggle theme</Button>
+      <Box>
+        <MenuList>
+          <MenuListItem current>Explore</MenuListItem>
+          <MenuListItem>All Games</MenuListItem>
+          <MenuListItem>Jackpot</MenuListItem>
+        </MenuList>
+      </Box>
       <Navbar />
       <Characters />
       <Box center padding>

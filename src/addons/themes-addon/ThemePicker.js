@@ -7,11 +7,6 @@ const theme = {
   size: 'huge'
 }
 
-const themeDark = {
-  mode: 'dark',
-  size: 'huge'
-}
-
 class ThemePicker extends React.Component {
 
   state = {
@@ -22,29 +17,28 @@ class ThemePicker extends React.Component {
 
   _setTheme = (evt) => {
 
-    const { name } = evt.target
+    const { name, dataset } = evt.target
 
-    switch (name) {
-      case 'mode':
-        this.state.theme.mode === 'dark' ? this.setState({theme: {mode: 'light', size: this.state.theme.size}}) : this.setState({theme: {mode: 'dark', size: this.state.theme.size}})
-        break;
-      case 'size':
-        this.state.theme.size === 'huge' ? this.setState({theme: {mode: this.state.theme.mode, size: 'small'}}) : this.setState({theme: {mode: this.state.theme.mode, size: 'huge'}})
-        break;
-      default:
+    this.setState((prevState) => ({
+      theme: {
+        ...prevState.theme,
+        [dataset.type]: name
+      }
+    }), this._emitTheme)
 
-    }
+  }
 
-    console.log('are we here before?');
-
+  _emitTheme = () => {
     this.channel.emit('storybook/themes/add_theme', this.state.theme)
   }
 
   render() {
     return (
       <div>
-        <ThemePickerButton name="mode" onClick={this._setTheme}>Toggle mode</ThemePickerButton>
-        <ThemePickerButton name="size" onClick={this._setTheme}>Toggle size</ThemePickerButton>
+        <ThemePickerButton data-type="mode" name="light" onClick={this._setTheme}>Light mode</ThemePickerButton>
+        <ThemePickerButton data-type="mode" name="dark" onClick={this._setTheme}>Dark mode</ThemePickerButton>
+        <ThemePickerButton data-type="size" name="huge" onClick={this._setTheme}>Huge size</ThemePickerButton>
+        <ThemePickerButton data-type="size" name="small" onClick={this._setTheme}>Small size</ThemePickerButton>
       </div>
     )
   }

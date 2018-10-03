@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import theme from 'styled-theming'
 import Preloader from './../common/preloader'
 import Box from './../common/box'
+import shortid from 'shortid'
 
 const boxStuff = theme('mode', {
   light: '#999',
@@ -37,9 +38,9 @@ class App extends Component {
 
   renderCharacters () {
     return Object.keys(this.props.characters).map(key => {
-      const datum = this.props.characters[key];
+      const datum = this.props.characters[key]
       return (
-        <Character key={key}>
+        <Character key={shortid.generate()}>
           <CharacterName>{datum.name}</CharacterName>
           <CharacterInfo>Height: {datum.height}</CharacterInfo>
           <CharacterInfo>Weight: {datum.mass}</CharacterInfo>

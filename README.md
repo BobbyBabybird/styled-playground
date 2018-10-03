@@ -20,6 +20,7 @@
  11. Read up on Ducks before testing action/reducers https://github.com/erikras/ducks-modular-redux/
  12. Nice UX animaitons for click, hover etc. (check)
  13. Connect theme with storybook theme. Right now storybook theme is hardcoded. Should fetch info from ducs.
+ 14. Fix uniqe key. What being used now feels like a hack. (check)
 
  ### Next session
 

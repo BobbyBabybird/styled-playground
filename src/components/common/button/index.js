@@ -2,6 +2,7 @@ import React from 'react'
 import { oneOf } from 'prop-types'
 import styled, { css, keyframes } from 'styled-components'
 import theme from 'styled-theming'
+import shortid from 'shortid'
 
 const rippleLength = 1000
 
@@ -155,7 +156,7 @@ class ButtonWithText extends React.Component {
 
     const { rippleList } = this.state,
     rand = Math.random(),
-    rippleElement = <ClickEffect key={`ripple--${rand}`} style={rippleStyle} />
+    rippleElement = <ClickEffect key={shortid.generate()} style={rippleStyle} />
 
 
     this.setState({rippleList: rippleList.concat(rippleElement)}, () => this._removeRipple(rippleElement))

@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { responsiveStoreEnhancer } from 'redux-responsive'
 
 import appReducer from '../reducers'
 
@@ -13,6 +14,7 @@ const app = combineReducers({appReducer})
 const store = createStore(
   app,
   composeWithDevTools(
+    responsiveStoreEnhancer,
     applyMiddleware(sagaMiddleware)
   )
 )

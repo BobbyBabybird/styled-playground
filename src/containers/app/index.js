@@ -7,6 +7,7 @@ import Characters from '../characters'
 import Button from '../../components/common/button'
 import Box from '../../components/common/box'
 import { MenuList, MenuListItem } from './../../components/common/menu'
+import Burger from './../../components/common/menu/mobile'
 import { ThemeProvider } from 'styled-components'
 import { globalStyles } from '../../styles/index'
 import {
@@ -20,11 +21,14 @@ const App = props => (
   <ThemeProvider theme={props.theme}>
     <AppBox>
       <Box>
-        <MenuList>
-          <MenuListItem current>Explore</MenuListItem>
-          <MenuListItem>All Games</MenuListItem>
-          <MenuListItem>Jackpot</MenuListItem>
-        </MenuList>
+        {props.browser.greaterThan.small ?
+          <MenuList>
+            <MenuListItem current>Explore</MenuListItem>
+            <MenuListItem>All Games</MenuListItem>
+            <MenuListItem>Jackpot</MenuListItem>
+          </MenuList> :
+          <Burger />
+        }
       </Box>
       <Navbar />
       <Characters />
@@ -38,7 +42,8 @@ const App = props => (
 )
 
 const mapStateToProps = state => ({
-  theme: state.appReducer.theme.currentTheme
+  theme: state.appReducer.theme.currentTheme,
+  browser: state.appReducer.browser
 })
 
 const mapDispatchToProps = dispatch =>

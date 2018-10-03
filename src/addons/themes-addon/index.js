@@ -21,7 +21,6 @@ export default class WithTheme extends React.Component {
   }
 
   _toggleTheme = (theme) => {
-    console.log(theme);
     this.setState({theme: theme})
   }
 
